@@ -32,13 +32,13 @@ import categoryPreview from './categoryPreview'
             })
         },
         methods: {
-            reLoadData() {
-                axios.get('http://rissanelson.com/wp-json/wp/v2/posts?categories=' + this.$route.params.id).then(res => {
-                this.categoryPosts = res.data;
-                }).catch(err => {
-                console.log(err);
-                })
-            }
+            // reLoadData() {
+            //     axios.get('http://rissanelson.com/wp-json/wp/v2/posts?categories=' + this.$route.params.id).then(res => {
+            //     this.categoryPosts = res.data;
+            //     }).catch(err => {
+            //     console.log(err);
+            //     })
+            // }
         },
     }
 </script>
