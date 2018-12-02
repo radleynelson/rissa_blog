@@ -18,18 +18,20 @@ import categoryPreview from './categoryPreview'
         data() {
             return {
                 test: 3,
-                categoryPosts: [],
             }
         },
+      computed: {
+        categoryPosts: function () {
+          return this.$store.getters.categoryPosts
+        }
+      },
         // watch: {
         //     '$route': this.reLoadData()
         // },
         created: function(){
-            axios.get('http://rissanelson.com/wp-json/wp/v2/posts?categories=' + this.$route.params.id).then(res => {
-                this.categoryPosts = res.data;
-            }).catch(err => {
-                console.log(err);
-            })
+
+            this.$store.dispatch('getCategoryPosts', this.$route.params.id);
+
         },
         methods: {
             // reLoadData() {

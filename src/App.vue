@@ -3,6 +3,7 @@
     <instaHeader/>
     <navbar/>
     <main-logo/>
+    <subscribe v-if="subscribeModal"/>
     <div class="container body">
       <router-view/>
     </div>
@@ -14,9 +15,15 @@
 import instaHeader from './components/instaHeader';
 import navbar from './components/navbar';
 import mainLogo from './components/mainLogo';
+import Subscribe from "./components/subscribe";
 export default {
   name: 'App',
-  components: { instaHeader, navbar, mainLogo }
+  components: {Subscribe, instaHeader, navbar, mainLogo },
+  computed: {
+    subscribeModal: function () {
+      return this.$store.getters.SubscribeModalStatus
+    }
+  }
 }
 </script>
 

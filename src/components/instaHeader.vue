@@ -14,18 +14,16 @@
         components: { instaPic },
         data() {
             return {
-                InstagramPosts: [],
+
             }
         },
+        computed: {
+          InstagramPosts: function () {
+            return this.$store.getters.Instagram
+          }
+        },
         created: function() {
-            axios.get('https://api.instagram.com/v1/users/self/media/recent/?access_token=195216274.28884f1.5b0c0e0cd28d48c88b3ae0efd32cae0a').then(res => {
-                console.log(res.data);
-                for (let iCount = 0; iCount < 12; iCount++){
-                    this.InstagramPosts.push(res.data.data[iCount])
-                }
-            }).catch(err => {
-                console.log(err);
-            })
+          this.$store.dispatch('getInsta');
         }
     }
 </script>

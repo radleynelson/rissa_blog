@@ -23,7 +23,7 @@
                         <i class="fa fa-search fa-3" aria-hidden="true"></i>
                     </div>
                     <div class="column">
-                        <a class="subscribe" href="#">SUBSCRIBE</a>
+                        <a class="subscribe" @click="showSubscribe" >SUBSCRIBE</a>
                     </div>
                     
                 </div>	
@@ -39,6 +39,11 @@
                 key: 3
             }
         },
+      methods: {
+          showSubscribe(){
+            this.$store.commit('setSubscribeModalStatus', true);
+          }
+      }
         
     }
 </script>
