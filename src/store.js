@@ -71,6 +71,11 @@ export default new Vuex.Store({
       })
     },
     userSubscribe(context, email){
+      axios.post('/api/AddSubscriber',{body:{email: email}}).then(res => {
+        console.log(res);
+      }).catch(err => {
+        console.log('There was an error', err);
+      });
       context.commit('setUserEmail', email);
     },
 
